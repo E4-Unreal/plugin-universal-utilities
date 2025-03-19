@@ -2,7 +2,7 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "0.1.0",
-	"FriendlyName": "PLUGIN_NAME",
+	"FriendlyName": "Universal Utilities",
 	"Description": "",
 	"Category": "Other",
 	"CreatedBy": "Eu4ng",
@@ -10,8 +10,15 @@
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"CanContainContent": true,
+	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": true,
-	"Installed": false
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UniversalUtilities",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
 }
