@@ -14,7 +14,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogUniversalUtilities, Log, All)
 #define ACTOR_COMPONENT_INFO (GetOwner()->GetName() + TEXT("(") + (GetOwner()->HasAuthority() ? FString("Server") : FString("Client")) + TEXT(")"))
 
 // 일반 로그
-#define LOG(Verbosity, Format, ...) UE_LOG(CATEGORY, Verbosity, TEXT("%s > %s > %s"), *GetName(), *CALL_INFO, *FString::Printf(Format, ##__VA_ARGS__))
+#define LOG(Verbosity, Format, ...) UE_LOG(CATEGORY, Verbosity, TEXT("%s > %s"), *CALL_INFO, *FString::Printf(Format, ##__VA_ARGS__))
 
 // Server or Client > 오브젝트 > 클래스::메서드(줄 위치) > 코멘트
 #define LOG_ACTOR(Verbosity, Format, ...) UE_LOG(CATEGORY, Verbosity, TEXT("%s > %s > %s"), *ACTOR_INFO, *CALL_INFO, *FString::Printf(Format, ##__VA_ARGS__))
@@ -31,5 +31,5 @@ DECLARE_LOG_CATEGORY_EXTERN(LogUniversalUtilities, Log, All)
 // 인터페이스 기본 구현이 호출된 경우 로그 출력
 #define LOG_TODO_INTERFACE UE_LOG(CATEGORY, Warning, TEXT("%s > Need to be implemented"), *CALL_INFO)
 
-// 특정 변수가 null일 경우 로그 출력
-#define LOG_CHECK_NULL(Variable) if(Variable == nullptr) LOG(Error, TEXT("%s is NULL"), *FString(#Variable))
+// 특정 변수가 nullptr임을 나타내는 로그 출력
+#define LOG_NULL(Variable) LOG(Error, TEXT("%s is nullptr"), *FString(#Variable))
